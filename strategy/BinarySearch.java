@@ -9,6 +9,13 @@ import java.util.ArrayList;
  * @author Kelli Alan
  */
 public class BinarySearch implements SearchBehavior {
+  
+  /**
+   * Utilizes the binary search algorithm to check if the specified item is on the given ArrayList
+   * @param data ArrayList to search
+   * @param item String to search for on the given ArrayList
+   * @return true if the item is on the list, false if the item is not on the list
+   */
   public boolean contains(ArrayList<String> data, String item) {
     boolean wasFound = false;
     data.sort(null);
