@@ -1,3 +1,4 @@
+package strategy;
 import java.util.ArrayList;
 
 /**
@@ -6,8 +7,8 @@ import java.util.ArrayList;
  */
 public class GuestList {
   private String title;
-  private ArrayList<String> people = new ArrayList<String>();
-  private SearchBehavior searchBehavior = new LinearSearch();
+  private ArrayList<String> people;
+  private SearchBehavior searchBehavior;
 
   /**
    * Creates a new GuestList with the given title
@@ -15,6 +16,8 @@ public class GuestList {
    */
   public GuestList(String title) {
     this.title = title;
+    this.people = new ArrayList<String>();
+    this.searchBehavior = new LinearSearch();
   }
 
   /**
@@ -24,12 +27,11 @@ public class GuestList {
    *         (case-insensitive)
    */
   public boolean add(String person) {
-    boolean wasAdded = false;
-    if(!this.searchBehavior.contains(getList(), person)) {  // checks if person is on the list
+    if(!this.searchBehavior.contains(people, person)) {  // checks if person is on the list
       getList().add(person);
-      wasAdded = true;
+      return true;
     }
-    return wasAdded;
+    return false;
   }
 
   /**
@@ -38,12 +40,11 @@ public class GuestList {
    * @return true if person is removed from the list, false if the person is not on the list
    */
   public boolean remove(String person) {
-    boolean wasRemoved = false;
     if(this.searchBehavior.contains(getList(), person)) {  // checks if person is on the list
       getList().remove(person);
-      wasRemoved = true;
+      return true;
     }
-    return wasRemoved;
+    return false;
   }
 
   /**

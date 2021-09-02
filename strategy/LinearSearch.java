@@ -1,3 +1,4 @@
+package strategy;
 import java.util.ArrayList;
 
 /**
@@ -13,16 +14,14 @@ public class LinearSearch implements SearchBehavior {
    * @return true if the String is found in the ArrayList; false if the String is not found
    */
   public boolean contains(ArrayList<String> data, String item) {
-    boolean wasFound = false;
-    if(!data.isEmpty()) {
-      for(int i = 0; i < data.size(); ++i) {
-        if(data.get(i).equalsIgnoreCase(item)) {
-          wasFound = true;
-          break;
-        }
+    if(data.isEmpty()) {
+      return false;
+    }
+    for(int i = 0; i < data.size(); ++i) {
+      if(data.get(i).equalsIgnoreCase(item)) {
+        return true;
       }
     }
-    return wasFound;
-    
+    return false;
   }
 }

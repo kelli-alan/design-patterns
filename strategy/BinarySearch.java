@@ -1,3 +1,4 @@
+package strategy;
 import java.util.ArrayList;
 
 /**
@@ -17,24 +18,23 @@ public class BinarySearch implements SearchBehavior {
    * @return true if the item is on the list, false if the item is not on the list
    */
   public boolean contains(ArrayList<String> data, String item) {
-    boolean wasFound = false;
     data.sort(null);
-    if(!data.isEmpty()) {
-      int startSearchIndex = 0;
-      int stopSearchIndex = data.size() - 1;  // accounts for indexes starting at zero
+    if(data.isEmpty()) {
+      return false;
+    }
+    int startSearchIndex = 0;
+    int stopSearchIndex = data.size() - 1;  // accounts for indexes starting at zero
       
-      while(stopSearchIndex >= startSearchIndex) {
-        int middle = (startSearchIndex + stopSearchIndex) / 2;
-        if(item.equalsIgnoreCase(data.get(middle))) {
-          wasFound = true;
-          break;
-        } else if(item.compareTo(data.get(middle)) < 0) {  // item is left of the middle index
-            stopSearchIndex = middle - 1;
-        } else {                                          // item is right of the middle index
+    while(stopSearchIndex >= startSearchIndex) {
+      int middle = (startSearchIndex + stopSearchIndex) / 2;
+      if(item.equalsIgnoreCase(data.get(middle))) {
+        return true;
+      } else if(item.compareTo(data.get(middle)) < 0) {  // item is left of the middle index
+          stopSearchIndex = middle - 1;
+      } else {                                          // item is right of the middle index
           startSearchIndex = middle + 1;
-        }
       }
     }
-    return wasFound;
+    return false;
   }
 }
