@@ -4,6 +4,7 @@ import java.util.Queue;
 
 /**
  * An observer who is interested in the top 5 best-selling novels at any time
+ * @author Kelli Alan
  */
 public class Store implements Observer{
   private Subject subject;
