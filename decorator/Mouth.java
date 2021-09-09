@@ -6,6 +6,6 @@ public class Mouth extends CharacterDecorator {
   }
 
   public void customize() {
-    
+    this.sections.set(5, "  \\ ---- / ");
   }
 }

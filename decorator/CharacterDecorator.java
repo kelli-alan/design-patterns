@@ -6,7 +6,7 @@ public abstract class CharacterDecorator extends Character {
   public CharacterDecorator(Character character) {
     this.character = character;
     for(int i = 0; i < character.sections.size(); ++i) {
-      this.sections.set(i, character.sections.get(i));
+      this.sections.add(i, character.sections.get(i));
     }
     customize();
   }

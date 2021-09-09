@@ -6,6 +6,6 @@ public class Nose extends CharacterDecorator {
   }
 
   public void customize() {
-    
+    this.sections.set(4, " |   >    |");
   }
 }

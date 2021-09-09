@@ -6,6 +6,6 @@ public class Eyes extends CharacterDecorator {
   }
 
   public void customize() {
-    
+    this.sections.set(3, " |  o  o  | ");
   }
 }
