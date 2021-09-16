@@ -6,7 +6,7 @@ package factory;
 public class HousePlanDriver {
 
     /**
-     * Creates house plans and display stheir details.
+     * Creates house plans and displays their details.
      */
     public void run() {
         HousePlan logCabin = HousePlanFactory.createHousePlan("log cabin");

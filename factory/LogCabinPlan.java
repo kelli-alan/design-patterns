@@ -18,6 +18,6 @@ public class LogCabinPlan extends HousePlan{
   }
 
   public String toString() {
-    return "";
+    return "Log Cabin\n" + super.toString();
   }
 }

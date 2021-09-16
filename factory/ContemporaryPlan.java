@@ -19,6 +19,6 @@ public class ContemporaryPlan extends HousePlan {
   }
 
   public String toString() {
-    return "";
+    return "Contemporary Home\n" + super.toString();
   }
 }

@@ -14,6 +14,8 @@ public abstract class HousePlan {
     this.numRooms = numRooms;
     this.numWindows = numWindows;
     this.squareFeet = squareFeet;
+    setMaterials();
+    setFeatures();
   }
 
   protected abstract void setMaterials();
@@ -41,8 +43,18 @@ public abstract class HousePlan {
   }
 
   public String toString() {
-    return "";
+    String houseDetails = "Square Feet: " + this.squareFeet + "\nRoom: " + this.numRooms + 
+              "\nWindows: " + this.numWindows + "\n\nMaterials:\n";
+    for (String material : materials) {
+      houseDetails += " - " + material + "\n";
+    }
+
+    houseDetails += "\nFeatures:\n";
+
+    for(String feature : features) {
+      houseDetails += " - " + feature + "\n";
+    }
+
+    return houseDetails;
   }
-
-
 }

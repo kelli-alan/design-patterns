@@ -20,6 +20,6 @@ public class TinyHomePlan extends HousePlan{
   }
 
   public String toString() {
-    return "";
+    return "Tiny House\n" + super.toString();
   }
 }
