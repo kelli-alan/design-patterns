@@ -39,7 +39,7 @@ public class Flight {
     } else if(this.transfers == 1) {
       flightDetails += "1 transfer";
     } else {
-      flightDetails += this.transfers + "transfers";
+      flightDetails += this.transfers + " transfers";
     }
 
     return flightDetails;

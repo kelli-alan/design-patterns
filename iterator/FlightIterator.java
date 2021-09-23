@@ -10,10 +10,19 @@ public class FlightIterator implements Iterator {
   }
 
   public boolean hasNext() {
-    return false;
+    if (flights[position + 1] == null) {
+      return false;
+    }
+    return true;
   }
 
   public Flight next() {
-    return null;
+    if(flights[position] == null) {
+      return null;
+    } else {
+      int temp = this.position;
+      ++this.position;
+      return flights[temp];
+    }
   }
 }

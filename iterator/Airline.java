@@ -12,7 +12,12 @@ public class Airline {
   }
 
   public void addFlight(String flightNum, String from, String to, int duration, int transfers) {
-
+    Flight newFlight = new Flight(flightNum, from, to, duration, transfers);
+    if(this.size >= this.flights.length) {
+      growArray(flights);
+    }    
+    flights[size] = newFlight;
+    ++size;
   }
 
   public String getTitle() {
@@ -20,7 +25,12 @@ public class Airline {
   }
 
   private Flight[] growArray(Flight[] flights) {
-    return new Flight[size * 2];
+    Flight[] BiggerFlightArray = new Flight[size * 2];
+    for(int i = 0; i < size; ++i) {
+      BiggerFlightArray[i] = flights[i];
+    }
+    this.flights = BiggerFlightArray;
+    return this.flights;
   }
 
   public FlightIterator createIterator() {
