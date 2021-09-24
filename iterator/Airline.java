@@ -10,7 +10,7 @@ public class Airline {
   private int size;
 
   /**
-   * Creates a new airline that can initially store 2 flights
+   * Creates an empty airline array that can initially store 2 flights
    * @param title name of the airline
    */
   public Airline(String title) {
@@ -20,7 +20,7 @@ public class Airline {
   }
 
   /**
-   * Adds a flight with given characteristics to the end of an airline's Array of flights.
+   * Adds a flight with given characteristics to the end of an airline's array of flights.
    * @param flightNum the number associated with the flight
    * @param from the starting location of the flight
    * @param to the destination of the flight
@@ -60,7 +60,7 @@ public class Airline {
   }
 
   /**
-   * Creates a new iterator for flight arrays
+   * Creates a new iterator for a flight array
    * @return an iterator to iterate through an array of flights
    */
   public FlightIterator createIterator() {

@@ -11,10 +11,11 @@ public class FlightIterator implements Iterator{
 
   /**
    * Creates a new iterator for a specified array of flights
-   * @param flights the array of flights associated with the new iterator
+   * @param flights the array of flights to associate with the new iterator
    */
   public FlightIterator(Flight[] flights) {
     this.flights = flights;
+    this.position = 0;
   }
 
   /**
@@ -27,7 +28,8 @@ public class FlightIterator implements Iterator{
   }
 
   /**
-   * Retrieves the flight information at the next index and updates the iterator's position
+   * Retrieves the flight information of the next flight in the array and updates the iterator's 
+   * position
    * @return the next flight in the array
    */
   public Flight next() {
