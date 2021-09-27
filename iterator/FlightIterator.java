@@ -33,9 +33,10 @@ public class FlightIterator implements Iterator{
    * @return the next flight in the array
    */
   public Flight next() {
-    if(flights[position] == null) {
-      return null;
+    
+    if(hasNext()) {
+      return flights[position++];
     }
-    return flights[position++];
+    return null;
   }
 }
