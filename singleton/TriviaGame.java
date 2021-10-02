@@ -51,20 +51,6 @@ public class TriviaGame {
   }
 
   /**
-   * Helper method to continuously prompt user to play or quit until they enter a valid value, p or 
-   * q, case insensitive 
-   */
-  private void printError() {
-    String choice;
-    do {
-      System.out.println("Invalid Option");
-      System.out.print("(P)lay or (Q)uit: ");
-      choice = reader.nextLine();
-
-    }while(!isValid(choice));   
-  }
-
-  /**
    * Keeps track of how many questions the user answers correctly 
    * and prompts user to quit or play again. Questions continue to print to the console until 
    * the user chooses to quit. Once the user chooses to quit, their score prints with a goodbye 
@@ -78,12 +64,23 @@ public class TriviaGame {
       }
       System.out.print("(P)lay or (Q)uit: ");
       String choice = reader.nextLine();
+      System.out.println();
       if(choice.equalsIgnoreCase("P")) {
         continue;
       } else if(choice.equalsIgnoreCase("Q")) {
         break;
       } else {
-        printError();
+        
+        do {
+          System.out.println("Invalid Option");
+          System.out.print("(P)lay or (Q)uit: ");
+          choice = reader.nextLine();
+        }while(!isValid(choice));
+
+        if(choice.equalsIgnoreCase("q")) {
+          break;
+        }
+        
       }
     }
     System.out.println("You won " + this.score + " games!\nGoodbye");
@@ -99,7 +96,7 @@ public class TriviaGame {
    */
   private boolean playRound() {
     int questionNum = rand.nextInt(questions.size());
-    System.out.print(questions.get(questionNum).toString());
+    System.out.println(questions.get(questionNum).toString());
 
     System.out.print("Enter answer: ");
     int userAnswer = reader.nextInt();
