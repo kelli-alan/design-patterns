@@ -57,20 +57,22 @@ public class TriviaGame {
    * message.
    */
   public void play() {
-    
     while(true) {
       if(playRound()) {
         score++;
       }
+
       System.out.print("(P)lay or (Q)uit: ");
       String choice = reader.nextLine();
       System.out.println();
+
       if(choice.equalsIgnoreCase("P")) {
         continue;
       } else if(choice.equalsIgnoreCase("Q")) {
         break;
+      
       } else {
-        
+        // prompt user until input is valid; if valid input is q, quit game. 
         do {
           System.out.println("Invalid Option");
           System.out.print("(P)lay or (Q)uit: ");
@@ -80,7 +82,6 @@ public class TriviaGame {
         if(choice.equalsIgnoreCase("q")) {
           break;
         }
-        
       }
     }
     System.out.println("You won " + this.score + " games!\nGoodbye");
