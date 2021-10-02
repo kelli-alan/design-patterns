@@ -39,6 +39,32 @@ public class TriviaGame {
   }
 
   /**
+   * Helper method to determine if user entered a P for play or Q for quit
+   * @param input user choice, expected p or q
+   * @return true if input is valid (p or q, case insensitive), false if input is invalid
+   */
+  private boolean isValid(String input) {
+    if(input.equalsIgnoreCase("P") || input.equalsIgnoreCase("Q")) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Helper method to continuously prompt user to play or quit until they enter a valid value, p or 
+   * q, case insensitive 
+   */
+  private void printError() {
+    String choice;
+    do {
+      System.out.println("Invalid Option");
+      System.out.print("(P)lay or (Q)uit: ");
+      choice = reader.nextLine();
+
+    }while(!isValid(choice));   
+  }
+
+  /**
    * Keeps track of how many questions the user answers correctly 
    * and prompts user to quit or play again. Questions continue to print to the console until 
    * the user chooses to quit. Once the user chooses to quit, their score prints with a goodbye 
@@ -50,11 +76,14 @@ public class TriviaGame {
       if(playRound()) {
         score++;
       }
-      
       System.out.print("(P)lay or (Q)uit: ");
       String choice = reader.nextLine();
-      if(choice.equalsIgnoreCase("Q")) {
+      if(choice.equalsIgnoreCase("P")) {
+        continue;
+      } else if(choice.equalsIgnoreCase("Q")) {
         break;
+      } else {
+        printError();
       }
     }
     System.out.println("You won " + this.score + " games!\nGoodbye");
@@ -63,7 +92,8 @@ public class TriviaGame {
   /**
    * Randomly selects a question from available questions. Prints the question to the console.
    * Prompts the user for an answer. Determines if the user's input is valid and if their answer
-   * is correct. Prints correct answer if user is incorrect.
+   * is correct. Prints correct answer if user is incorrect. Prints error message if user enters
+   * invalid answer (number not within 1-4 inclusively)
    * @return true if user answers correctly, false if user answers incorrectly or provides an 
    *         invalid value
    */
@@ -80,9 +110,9 @@ public class TriviaGame {
     }else if (questions.get(questionNum).isCorrect(userAnswer)) {
       System.out.println("YAY! You got it right!");
       return true;
+    } else {
+      System.out.println("You got it wrong!\n" + questions.get(questionNum).getCorrectAnswer());
     }
-
-    System.out.println("You got it wrong!\n" + questions.get(questionNum).getCorrectAnswer());
     return false;
   }
 }
