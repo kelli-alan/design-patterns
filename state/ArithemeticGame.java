@@ -26,11 +26,11 @@ public class ArithemeticGame {
   }
   
   /**
-   * Prints a random, level appropriate math question to the console;
-   * Increments score if user answer correctly
-   * Decrements score if user answer incorrectly
-   * Advances user to next level if user scores 3 or higher on current level (other than hard)
-   * Returns user to previous level if user has a score of -3 on current level (other than easy)
+   * *Prints a random, level appropriate math question to the console;
+   * *Increments score if user answer correctly
+   * *Decrements score if user answer incorrectly
+   * *Advances user to next level if user scores 3 or higher on current level (other than hard)
+   * *Returns user to previous level if user has a score of -3 on current level (other than easy)
    */
   public void pressQuestionButton() {
     int number1 = state.getNum();
